@@ -193,6 +193,8 @@ def _create_index_files(root_dir, force_no_processing=False):
     created_files = []
     # Walk the root dir downwards, creating index files as we go
     for here, dirs, files in os.walk(root_dir):
+        if not ('daily' in here or here=='.'):
+            continue
         print('Processing %s' % here)
         # Sort the subdirectories by name
         dirs = sorted(dirs)
